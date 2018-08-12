@@ -6,7 +6,7 @@ from .testplot import TestBokehPlot, bokeh_renderer
 class TestSpreadPlot(TestBokehPlot):
 
     def test_spread_padding_square(self):
-        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).options(padding=0.2)
+        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).options(padding=0.1)
         plot = bokeh_renderer.get_plot(spread)
         x_range, y_range = plot.handles['x_range'], plot.handles['y_range']
         self.assertEqual(x_range.start, 0.8)
@@ -15,7 +15,7 @@ class TestSpreadPlot(TestBokehPlot):
         self.assertEqual(y_range.end, 3.8)
 
     def test_spread_padding_hard_range(self):
-        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).redim.range(y=(0, 4)).options(padding=0.2)
+        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).redim.range(y=(0, 4)).options(padding=0.1)
         plot = bokeh_renderer.get_plot(spread)
         x_range, y_range = plot.handles['x_range'], plot.handles['y_range']
         self.assertEqual(x_range.start, 0.8)
@@ -24,7 +24,7 @@ class TestSpreadPlot(TestBokehPlot):
         self.assertEqual(y_range.end, 4)
 
     def test_spread_padding_soft_range(self):
-        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).redim.soft_range(y=(0, 3.5)).options(padding=0.2)
+        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).redim.soft_range(y=(0, 3.5)).options(padding=0.1)
         plot = bokeh_renderer.get_plot(spread)
         x_range, y_range = plot.handles['x_range'], plot.handles['y_range']
         self.assertEqual(x_range.start, 0.8)
@@ -33,7 +33,7 @@ class TestSpreadPlot(TestBokehPlot):
         self.assertEqual(y_range.end, 3.8)
 
     def test_spread_padding_nonsquare(self):
-        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).options(padding=0.2, width=600)
+        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).options(padding=0.1, width=600)
         plot = bokeh_renderer.get_plot(spread)
         x_range, y_range = plot.handles['x_range'], plot.handles['y_range']
         self.assertEqual(x_range.start, 0.9)
@@ -42,7 +42,7 @@ class TestSpreadPlot(TestBokehPlot):
         self.assertEqual(y_range.end, 3.8)
 
     def test_spread_padding_logx(self):
-        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3,3, 0.5)]).options(padding=0.2, logx=True)
+        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3,3, 0.5)]).options(padding=0.1, logx=True)
         plot = bokeh_renderer.get_plot(spread)
         x_range, y_range = plot.handles['x_range'], plot.handles['y_range']
         self.assertEqual(x_range.start, 0.89595845984076228)
@@ -51,7 +51,7 @@ class TestSpreadPlot(TestBokehPlot):
         self.assertEqual(y_range.end, 3.8)
     
     def test_spread_padding_logy(self):
-        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).options(padding=0.2, logy=True)
+        spread = Spread([(1, 1, 0.5), (2, 2, 0.5), (3, 3, 0.5)]).options(padding=0.1, logy=True)
         plot = bokeh_renderer.get_plot(spread)
         x_range, y_range = plot.handles['x_range'], plot.handles['y_range']
         self.assertEqual(x_range.start, 0.8)
